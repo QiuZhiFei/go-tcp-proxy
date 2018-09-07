@@ -82,7 +82,6 @@ func (p *Proxy) Start() {
 
 	//display both ends
 	p.Log.Info("Opened %s >>> %s", p.laddr.String(), p.raddr.String())
-	p.Log.Info("hehe %s ", p.tlsAddress)
 
 	//bidirectional copy
 	go p.pipe(p.lconn, p.rconn)
@@ -105,6 +104,9 @@ func (p *Proxy) err(s string, err error) {
 }
 
 func (p *Proxy) pipe(src, dst io.ReadWriter) {
+	p.Log.Info("src %s", src)
+	p.Log.Info("dst %s", dst)
+
 	islocal := src == p.lconn
 
 	var dataDirection string
