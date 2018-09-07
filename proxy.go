@@ -82,6 +82,7 @@ func (p *Proxy) Start() {
 
 	//display both ends
 	p.Log.Info("Opened %s >>> %s", p.laddr.String(), p.raddr.String())
+	p.Log.Info("hehe %s ", p.tlsAddress)
 
 	//bidirectional copy
 	go p.pipe(p.lconn, p.rconn)
